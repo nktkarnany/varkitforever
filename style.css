@@ -6,14 +6,18 @@
 
 :root {
   font-size: 16px;
+  --transform: scale(0.8);
+  --speed: 2s;
+  --stem: #ccd5ae;
+  --flower: 300;
+  --color-text: #655a7c;
+  --color-bg: #f1dede;
+  --color-link: #f28482;
+  --color-link-hover: #f28482;
 }
 
 body {
   margin: 0;
-  --color-text: #242222;
-  --color-bg: #ffffff;
-  --color-link: #000000;
-  --color-link-hover: #000000;
   color: var(--color-text);
   background-color: var(--color-bg);
   overflow: hidden;
@@ -22,8 +26,33 @@ body {
   position: relative;
 }
 
+main {
+  height: 100vh;
+  background-image: url("./floral.jpeg");
+}
+
+.content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 3rem;
+}
+
+.link {
+  font-size: 1.2rem;
+}
+
 a {
-  color: #ff847c;
+  color: var(--color-link);
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
@@ -31,7 +60,7 @@ a {
 a:hover,
 a:active,
 a:focus {
-  color: #ff847c;
+  color: var(--color-link);
   outline: none;
 }
 
@@ -45,22 +74,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #000;
+  color: var(--color-text);
   font-family: "tangerine", cursive;
   font-weight: 400;
-}
-
-::-webkit-selection {
-  color: #818892;
-  background: #f9f6f0;
-}
-
-::-moz-selection {
-  color: #818892;
-  background: #f9f6f0;
-}
-
-::selection {
-  color: #818892;
-  background: #f9f6f0;
 }
