@@ -1,0 +1,145 @@
+@font-face {
+  font-family: "Grosa";
+  src: url("./fonts/Grosa-Bold.woff2") format("woff2"),
+    url("./fonts/Grosa-Bold.woff") format("woff"),
+    url("./fonts/Grosa-Bold.ttf") format("truetype");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Grosa";
+  src: url("./fonts/Grosa-Medium.woff2") format("woff2"),
+    url("./fonts/Grosa-Medium.woff") format("woff"),
+    url("./fonts/Grosa-Medium.ttf") format("truetype");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Grosa";
+  src: url("./fonts/Grosa-Regular.woff2") format("woff2"),
+    url("./fonts/Grosa-Regular.woff") format("woff"),
+    url("./fonts/Grosa-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Grosa";
+  src: url("./fonts/Grosa-Light.woff2") format("woff2"),
+    url("./fonts/Grosa-Light.woff") format("woff"),
+    url("./fonts/Grosa-Light.ttf") format("truetype");
+  font-weight: 300;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  --color-text: #242222;
+  --color-bg: #ffffff;
+  --color-link: #000000;
+  --color-link-hover: #000000;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  overflow: hidden;
+  font-family: "Grosa";
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 40;
+  transition: background-color 1s ease-in;
+}
+
+body.loading::before {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+body.loaded::before {
+  content: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-link);
+  outline: none;
+}
+
+a:hover,
+a:focus {
+  color: var(--color-link-hover);
+  outline: none;
+}
+
+main {
+  position: relative;
+  height: auto;
+}
+
+.container {
+  position: relative;
+  background-color: var(--color-bg);
+  display: grid;
+  grid-template-columns: repeat(48, 1fr);
+  grid-template-rows: repeat(220, 1fr);
+  overflow: hidden;
+}
+
+.box-inner {
+  display: grid;
+}
+
+.img-container {
+  will-change: transform;
+  opacity: 0;
+  transition: opacity 0.8s ease-out;
+}
+
+.img-container.visible {
+  opacity: 1;
+}
+
+.img-container:hover {
+  z-index: 3 !important;
+}
+
+.img-container img {
+  width: 100%;
+  position: relative;
+  transition: transform 0.3s ease-out;
+}
+
+.img-container img:hover {
+  transform: scale(1.4);
+}
+
+.alex-links {
+  text-decoration: underline;
+  margin-bottom: 0.625rem;
+}
+
+.our-links {
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    grid-template-columns: repeat(24, 1fr);
+    grid-template-rows: repeat(592, 1fr);
+  }
+}
